@@ -13,7 +13,7 @@ export default function UserList() {
         const response = await fetch('http://localhost:3000/api/users')
         const data = await response.json()
         
-        const users = data.user.map(user => {
+        const users = data.users.map(user => {
             return {
                 id: user.id,
                 name: user.name,
@@ -21,7 +21,7 @@ export default function UserList() {
                 createdAt: new Date(user.crearedAt).toLocaleDateString('pt-BR', {
                     day: '2-digit',
                     month: 'long',
-                    year: 'numeric'
+                    year: 'numeric',
                 })
             }
         });
